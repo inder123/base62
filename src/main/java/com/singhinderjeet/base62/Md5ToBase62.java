@@ -42,7 +42,7 @@ public class Md5ToBase62 {
      *
      * @param base62 The string representing a number in base 62
      * @return the string (padded with enough leading zeros, if needed)
-     * @throws if base62 is not in base 62 format
+     * @throws NumberFormatException if base62 is not in base 62 format
      */
     public static String fromBase62(String base62) {
         BigInteger value = fromBase62ToInteger(base62);
