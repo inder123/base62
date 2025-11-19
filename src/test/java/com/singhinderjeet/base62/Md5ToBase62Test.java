@@ -15,10 +15,10 @@
  */
 package com.singhinderjeet.base62;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for {@link Base62}
@@ -46,17 +46,15 @@ public class Md5ToBase62Test {
 
     @Test
     public void testMd5ToBase62RequiresValidInput() {
-        try {
+        assertThrows(NumberFormatException.class, () -> {
             Md5ToBase62.toBase62("hello world");
-            fail();
-        } catch (NumberFormatException expected) {}
+        });
     }
 
     @Test
     public void testBase62ToMd5RequiresValidInput() {
-        try {
+        assertThrows(NumberFormatException.class, () -> {
             Md5ToBase62.fromBase62("hello world");
-            fail();
-        } catch (NumberFormatException expected) {}
+        });
     }
 }
